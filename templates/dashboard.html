@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ user }}'s Dashboard</title>
+</head>
+<body>
+    <h2>Welcome {{ user }}</h2>
+    <form method="POST">
+        <input type="number" step="0.01" name="amount" required placeholder="Amount">
+        <select name="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+    <h3>Transactions:</h3>
+    <ul>
+        {% for t in transactions %}
+            <li>{{ t.type }}: ₹{{ t.amount }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
